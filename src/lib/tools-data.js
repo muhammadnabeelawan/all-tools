@@ -1,15 +1,15 @@
 export const categories = [
-  { id: 'all', name: 'All Tools', icon: '🧰', count: 65 },
-  { id: 'text', name: 'Text Tools', icon: '📝', count: 12 },
+  { id: 'all', name: 'All Tools', icon: '🧰', count: 70 },
+  { id: 'text', name: 'Text Tools', icon: '📝', count: 13 },
   { id: 'image', name: 'Image Tools', icon: '🖼️', count: 9 },
   { id: 'dev', name: 'Developer', icon: '💻', count: 12 },
   { id: 'converter', name: 'Converters', icon: '🔄', count: 8 },
   { id: 'generator', name: 'Generators', icon: '⚡', count: 8 },
-  { id: 'calculator', name: 'Calculators', icon: '🧮', count: 7 },
+  { id: 'calculator', name: 'Calculators', icon: '🧮', count: 8 },
   { id: 'security', name: 'Security', icon: '🔒', count: 3 },
   { id: 'color', name: 'Color Tools', icon: '🎨', count: 2 },
   { id: 'pdf', name: 'PDF Tools', icon: '📄', count: 6 },
-  { id: 'productivity', name: 'Productivity', icon: '🚀', count: 4 },
+  { id: 'productivity', name: 'Productivity', icon: '🚀', count: 8 },
 ];
 
 export const tools = [
@@ -102,7 +102,11 @@ export const tools = [
   { id: 'pomodoro-timer', name: 'Pomodoro Timer', desc: 'Focus sessions (25/5 technique)', category: 'productivity', icon: '🍅', color: '#ef4444' },
   { id: 'list-randomizer', name: 'List Randomizer', desc: 'Shuffle or pick from lists', category: 'productivity', icon: '🎲', color: '#8b5cf6' },
   { id: 'stopwatch', name: 'Stopwatch', desc: 'Precise timing with laps', category: 'productivity', icon: '⏱️', color: '#3b82f6' },
-  { id: 'scratchpad', name: 'Quick Scratchpad', desc: 'Browser-based notepad with auto-save', category: 'productivity', icon: '�', color: '#f59e0b' },
+  { id: 'scratchpad', name: 'Quick Scratchpad', desc: 'Browser-based notepad with auto-save', category: 'productivity', icon: '📝', color: '#f59e0b' },
+  { id: 'weather', name: 'Weather Forecast', desc: 'Real-time weather info and 5-day forecast for any city', category: 'productivity', icon: '🌤️', color: '#06b6d4' },
+  { id: 'world-clock', name: 'World Clock', desc: 'Check current time across major world cities and timezones', category: 'productivity', icon: '🌍', color: '#8b5cf6' },
+  { id: 'dictionary', name: 'Dictionary', desc: 'Look up word definitions, synonyms, and pronunciation', category: 'text', icon: '📖', color: '#3b82f6' },
+  { id: 'expense-tracker', name: 'Expense Tracker', desc: 'Basic personal finance manager to track your daily spending', category: 'productivity', icon: '💰', color: '#10b981' },
 ];
 
 export function getToolById(id) {

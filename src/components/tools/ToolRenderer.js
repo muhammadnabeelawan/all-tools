@@ -75,6 +75,10 @@ const toolComponents = {
     'stopwatch': dynamic(() => import('./Stopwatch')),
     'bmr-calculator': dynamic(() => import('./BmrCalculator')),
     'scratchpad': dynamic(() => import('./Scratchpad')),
+    'weather': dynamic(() => import('./Weather'), { ssr: false }),
+    'world-clock': dynamic(() => import('./WorldClock'), { ssr: false }),
+    'dictionary': dynamic(() => import('./Dictionary')),
+    'expense-tracker': dynamic(() => import('./ExpenseTracker')),
 };
 
 export default function ToolRenderer({ tool }) {
