@@ -94,7 +94,7 @@ export default function ToolRenderer({ tool }) {
     const Component = toolComponents[tool.id];
     if (!Component) {
         return (
-            <ToolPageLayout title={tool.name} description={tool.desc}>
+            <ToolPageLayout title={tool.name} description={tool.desc} id={tool.id}>
                 <p style={{ color: 'var(--text-muted)', textAlign: 'center', padding: '40px 0' }}>
                     This tool is coming soon!
                 </p>
@@ -102,7 +102,7 @@ export default function ToolRenderer({ tool }) {
         );
     }
     return (
-        <ToolPageLayout title={tool.name} description={tool.desc}>
+        <ToolPageLayout title={tool.name} description={tool.desc} id={tool.id}>
             <Component />
         </ToolPageLayout>
     );
