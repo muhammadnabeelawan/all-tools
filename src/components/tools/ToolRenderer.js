@@ -45,6 +45,13 @@ const toolComponents = {
     'date-difference': dynamic(() => import('./DateDifference')),
     'password-strength': dynamic(() => import('./PasswordStrength')),
     'uuid-generator': dynamic(() => import('./UuidGenerator')),
+    'gradient-generator': dynamic(() => import('./GradientGenerator')),
+    'meta-tag-generator': dynamic(() => import('./MetaTagGenerator')),
+    'placeholder-image': dynamic(() => import('./PlaceholderImage')),
+    'csv-to-json': dynamic(() => import('./CsvToJson')),
+    'yaml-to-json': dynamic(() => import('./YamlToJson')),
+    'timestamp-converter': dynamic(() => import('./TimestampConverter')),
+    'number-base': dynamic(() => import('./NumberBase')),
 };
 
 export default function ToolRenderer({ tool }) {
