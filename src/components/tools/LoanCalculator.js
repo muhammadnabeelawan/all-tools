@@ -46,7 +46,7 @@ export default function LoanCalculator() {
                 </div>
                 <div className="metric-card">
                     <div className="metric-label">Total Payment</div>
-                    <div className="metric-value" style={{ borderBottomColor: status.color }}>${totalPayment.toLocaleString(undefined, { maximumFractionDigits: 2 })}</div>
+                    <div className="metric-value">${totalPayment.toLocaleString(undefined, { maximumFractionDigits: 2 })}</div>
                 </div>
             </div>
         </>
