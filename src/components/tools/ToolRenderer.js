@@ -89,6 +89,7 @@ const toolComponents = {
     'user-generator': dynamic(() => import('./RandomUserGenerator')),
     'task-checklist': dynamic(() => import('./TaskChecklist')),
     'resume-builder': dynamic(() => import('./ResumeBuilder')),
+    'invoice-generator': dynamic(() => import('./InvoiceGenerator')),
 };
 
 export default function ToolRenderer({ tool }) {

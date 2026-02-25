@@ -1,5 +1,5 @@
 export const categories = [
-  { id: 'all', name: 'All Tools', icon: '🧰', count: 77 },
+  { id: 'all', name: 'All Tools', icon: '🧰', count: 86 },
   { id: 'text', name: 'Text Tools', icon: '📝', count: 13 },
   { id: 'image', name: 'Image Tools', icon: '🖼️', count: 9 },
   { id: 'dev', name: 'Developer', icon: '💻', count: 13 },
@@ -117,6 +117,7 @@ export const tools = [
   { id: 'expense-tracker', name: 'Expense Tracker', desc: 'Basic personal finance manager to track your daily spending', category: 'productivity', icon: '�', color: '#10b981' },
   { id: 'task-checklist', name: 'Task Checklist', desc: 'Manage your daily tasks with a simple and clean checklist tool', category: 'productivity', icon: '✅', color: '#8b5cf6' },
   { id: 'resume-builder', name: 'ATS Resume Builder', desc: 'Create a professional, ATS-friendly resume with live preview and PDF export', category: 'productivity', icon: '📄', color: '#3b82f6', tag: 'New' },
+  { id: 'invoice-generator', name: 'Invoice & Receipt Maker', desc: 'Generate professional invoices, business bills, and receipts with PDF export', category: 'productivity', icon: '🧾', color: '#10b981', tag: 'New' },
 ];
 
 export function getToolById(id) {

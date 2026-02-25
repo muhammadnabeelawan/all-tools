@@ -97,7 +97,7 @@ export default function AboutUs() {
                         obtrusive ads, or force you to create accounts. We wanted to build something different.
                     </p>
                     <p style={{ marginTop: '20px' }}>
-                        All Tools is a comprehensive suite of 77+ utilities designed for developers, designers,
+                        All Tools is a comprehensive suite of 85+ utilities designed for developers, designers,
                         and power users. By using the latest web technologies like WebAssembly and client-side
                         JS, we've eliminated the need for server processing, making our tools faster, safer,
                         and more reliable.
