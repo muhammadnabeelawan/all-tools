@@ -1,19 +1,30 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { currencies } from '@/lib/currencies';
 
 export default function ExpenseTracker() {
     const [desc, setDesc] = useState('');
     const [amount, setAmount] = useState('');
     const [items, setItems] = useState([]);
+    const [currencyCode, setCurrencyCode] = useState('USD');
 
     useEffect(() => {
         const saved = localStorage.getItem('all-tools-expenses');
+        const savedCurrency = localStorage.getItem('all-tools-expense-currency');
         if (saved) setItems(JSON.parse(saved));
+        if (savedCurrency) setCurrencyCode(savedCurrency);
     }, []);
 
     useEffect(() => {
         localStorage.setItem('all-tools-expenses', JSON.stringify(items));
     }, [items]);
+
+    useEffect(() => {
+        localStorage.setItem('all-tools-expense-currency', currencyCode);
+    }, [currencyCode]);
+
+    const activeCurrency = currencies.find(c => c.code === currencyCode) || currencies[0];
+    const currency = activeCurrency.symbol;
 
     const add = (e) => {
         e.preventDefault();
@@ -31,9 +42,19 @@ export default function ExpenseTracker() {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            <div className="metric-card" style={{ textAlign: 'center', background: 'var(--bg-secondary)', padding: '2rem' }}>
-                <div className="metric-label">Total Expenses</div>
-                <div className="metric-value" style={{ color: 'var(--accent-primary)', fontSize: '3.5rem' }}>${total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
+            <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                <div className="metric-card" style={{ flex: 1, textAlign: 'center', background: 'var(--bg-secondary)', padding: '2rem' }}>
+                    <div className="metric-label">Total Expenses</div>
+                    <div className="metric-value" style={{ color: 'var(--accent-primary)', fontSize: '3.5rem' }}>
+                        {currency}{total.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                    </div>
+                </div>
+                <div className="input-group" style={{ width: '200px' }}>
+                    <label>Currency</label>
+                    <select className="input-field" value={currencyCode} onChange={e => setCurrencyCode(e.target.value)}>
+                        {currencies.map(c => <option key={c.code} value={c.code}>{c.label}</option>)}
+                    </select>
+                </div>
             </div>
 
             <form onSubmit={add} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: '1rem' }}>
@@ -42,7 +63,7 @@ export default function ExpenseTracker() {
                     <input className="input-field" value={desc} onChange={e => setDesc(e.target.value)} placeholder="e.g. Groceries" />
                 </div>
                 <div className="input-group">
-                    <label>Amount ($)</label>
+                    <label>Amount ({currency})</label>
                     <input className="input-field" type="number" step="0.01" value={amount} onChange={e => setAmount(e.target.value)} placeholder="e.g. 45.50" />
                 </div>
                 <div style={{ display: 'flex', alignItems: 'flex-end', paddingBottom: '4px' }}>
@@ -52,7 +73,7 @@ export default function ExpenseTracker() {
 
             <div className="result-container">
                 <div className="result-header">
-                    <span>Recent Spending</span>
+                    <span>Recent Spending ({currency})</span>
                     <button className="btn btn-outline btn-xs" onClick={() => setItems([])}>Clear All</button>
                 </div>
                 <div className="result-content" style={{ maxHeight: '400px' }}>
@@ -75,7 +96,7 @@ export default function ExpenseTracker() {
                                         <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{new Date(item.id).toLocaleDateString()}</div>
                                     </div>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                        <span style={{ fontWeight: '700', color: 'var(--accent-red)' }}>-${item.amount.toFixed(2)}</span>
+                                        <span style={{ fontWeight: '700', color: 'var(--accent-red)' }}>-{currency}{item.amount.toFixed(2)}</span>
                                         <button className="btn btn-xs btn-outline" style={{ color: 'var(--accent-red)', borderColor: 'var(--accent-red)' }} onClick={() => remove(item.id)}>✕</button>
                                     </div>
                                 </div>

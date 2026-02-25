@@ -1,11 +1,16 @@
 'use client';
 import { useState } from 'react';
+import { currencies } from '@/lib/currencies';
 
 export default function SavingsGoal() {
     const [target, setTarget] = useState(50000);
     const [initial, setInitial] = useState(5000);
     const [years, setYears] = useState(5);
     const [returnRate, setReturnRate] = useState(7);
+    const [currencyCode, setCurrencyCode] = useState('USD');
+
+    const activeCurrency = currencies.find(c => c.code === currencyCode) || currencies[0];
+    const currency = activeCurrency.symbol;
 
     const goal = parseFloat(target) || 0;
     const start = parseFloat(initial) || 0;
@@ -21,13 +26,20 @@ export default function SavingsGoal() {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <div className="input-group">
+                <label>Currency</label>
+                <select className="input-field" value={currencyCode} onChange={e => setCurrencyCode(e.target.value)}>
+                    {currencies.map(c => <option key={c.code} value={c.code}>{c.label}</option>)}
+                </select>
+            </div>
+
             <div className="grid-2">
                 <div className="input-group">
-                    <label>Savings Goal ($)</label>
+                    <label>Savings Goal ({currency})</label>
                     <input className="input-field" type="number" value={target} onChange={e => setTarget(e.target.value)} />
                 </div>
                 <div className="input-group">
-                    <label>Already Saved ($)</label>
+                    <label>Already Saved ({currency})</label>
                     <input className="input-field" type="number" value={initial} onChange={e => setInitial(e.target.value)} />
                 </div>
             </div>
@@ -46,7 +58,7 @@ export default function SavingsGoal() {
             <div className="metric-card" style={{ textAlign: 'center', borderColor: 'var(--accent-primary)', padding: '2.5rem' }}>
                 <div className="metric-label">You need to save</div>
                 <div className="metric-value" style={{ fontSize: '4rem', color: 'var(--accent-primary)' }}>
-                    ${Math.max(0, monthlySavings).toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                    {currency}{Math.max(0, monthlySavings).toLocaleString(undefined, { maximumFractionDigits: 0 })}
                 </div>
                 <div className="metric-label" style={{ marginTop: '8px' }}>every month</div>
             </div>
@@ -56,11 +68,11 @@ export default function SavingsGoal() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', color: 'var(--text-muted)' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <span>Total to Save:</span>
-                        <span style={{ color: 'var(--text-primary)', fontWeight: '600' }}>${(goal - start).toLocaleString()}</span>
+                        <span style={{ color: 'var(--text-primary)', fontWeight: '600' }}>{currency}{(goal - start).toLocaleString()}</span>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <span>Projected Growth:</span>
-                        <span style={{ color: 'var(--accent-success)', fontWeight: '600' }}>+${Math.max(0, goal - (monthlySavings * n + start)).toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+                        <span style={{ color: 'var(--accent-success)', fontWeight: '600' }}>+{currency}{Math.max(0, goal - (monthlySavings * n + start)).toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <span>Total Months:</span>
