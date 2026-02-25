@@ -248,9 +248,9 @@ export default function ResumeBuilder() {
             <style jsx>{`
                 .rb-container {
                     display: grid;
-                    grid-template-columns: 420px 1fr;
+                    grid-template-columns: 450px 1fr;
                     gap: 0;
-                    height: calc(100vh - 180px);
+                    height: calc(100vh - 120px);
                     background: #0f172a;
                     border-radius: 16px;
                     overflow: hidden;
@@ -260,11 +260,11 @@ export default function ResumeBuilder() {
                 .rb-editor {
                     background: #1e293b;
                     border-right: 1px solid rgba(255,255,255,0.1);
-                    padding: 24px;
+                    padding: 30px;
                     overflow-y: auto;
                     display: flex;
                     flex-direction: column;
-                    gap: 20px;
+                    gap: 24px;
                 }
                 .rb-preview {
                     background: #0f172a;
