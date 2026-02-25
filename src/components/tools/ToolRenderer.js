@@ -65,6 +65,11 @@ const toolComponents = {
     'url-parser': dynamic(() => import('./UrlParser')),
     'pdf-security': dynamic(() => import('./PdfSecurity'), { ssr: false }),
     'color-converter': dynamic(() => import('./ColorConverter')),
+    'morse-code': dynamic(() => import('./MorseCode')),
+    'base64-to-image': dynamic(() => import('./Base64ToImage')),
+    'css-triangle': dynamic(() => import('./CssTriangle')),
+    'js-runner': dynamic(() => import('./JsRunner')),
+    'text-to-speech': dynamic(() => import('./TextToSpeech')),
 };
 
 export default function ToolRenderer({ tool }) {

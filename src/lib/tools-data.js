@@ -90,6 +90,11 @@ export const tools = [
   { id: 'pdf-to-text', name: 'PDF to Text', desc: 'Extract text content from PDF files', category: 'pdf', icon: '📝', color: '#f59e0b' },
   { id: 'pdf-metadata', name: 'PDF Metadata Editor', desc: 'View and edit title, author, and keywords of PDF', category: 'pdf', icon: 'ℹ️', color: '#8b5cf6' },
   { id: 'pdf-security', name: 'PDF Password Tool', desc: 'Add or remove password protection from PDFs', category: 'pdf', icon: '🔒', color: '#ec4899' },
+  { id: 'morse-code', name: 'Morse Code Converter', desc: 'Encode and decode text into Morse code signals', category: 'text', icon: '📻', color: '#8b5cf6' },
+  { id: 'base64-to-image', name: 'Base64 to Image', desc: 'Convert Base64 encoded strings back into viewable images', category: 'image', icon: '🖼️', color: '#3b82f6' },
+  { id: 'css-triangle', name: 'CSS Triangle Generator', desc: 'Visual tool for generating CSS-only triangle shapes', category: 'dev', icon: '🔺', color: '#10b981' },
+  { id: 'js-runner', name: 'JavaScript Runner', desc: 'Execute and test snippets of JavaScript code in a safe playground', category: 'dev', icon: '⚡', color: '#f59e0b' },
+  { id: 'text-to-speech', name: 'Text to Speech', desc: 'Convert your text into spoken words using the browser voice engine', category: 'text', icon: '🔊', color: '#ec4899' },
 ];
 
 export function getToolById(id) {
