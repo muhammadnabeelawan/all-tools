@@ -79,6 +79,15 @@ const toolComponents = {
     'world-clock': dynamic(() => import('./WorldClock'), { ssr: false }),
     'dictionary': dynamic(() => import('./Dictionary')),
     'expense-tracker': dynamic(() => import('./ExpenseTracker')),
+    'compound-interest': dynamic(() => import('./CompoundInterest')),
+    'vat-calculator': dynamic(() => import('./VatCalculator')),
+    'savings-goal': dynamic(() => import('./SavingsGoal')),
+    'salary-calculator': dynamic(() => import('./SalaryCalculator')),
+    'timezone-converter': dynamic(() => import('./TimeZoneConverter'), { ssr: false }),
+    'data-size-converter': dynamic(() => import('./DataSizeConverter')),
+    'json-schema': dynamic(() => import('./JsonSchemaGenerator')),
+    'user-generator': dynamic(() => import('./RandomUserGenerator')),
+    'task-checklist': dynamic(() => import('./TaskChecklist')),
 };
 
 export default function ToolRenderer({ tool }) {
