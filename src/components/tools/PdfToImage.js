@@ -21,7 +21,8 @@ export default function PdfToImage() {
         try {
             // Dynamic import to avoid SSR errors
             const pdfjs = await import('pdfjs-dist');
-            pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+            const version = '5.4.624';
+            pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${version}/build/pdf.worker.min.mjs`;
 
             const arrayBuffer = await file.arrayBuffer();
             const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
@@ -42,7 +43,7 @@ export default function PdfToImage() {
             setImages(pages);
         } catch (err) {
             console.error(err);
-            alert('Error converting PDF to Image');
+            alert('Error converting PDF to Image. This could be a PDF worker loading issue. Please try again or refresh the page.');
         }
         setLoading(false);
     };
@@ -67,7 +68,7 @@ export default function PdfToImage() {
             {file && (
                 <div style={{ marginTop: 24 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-                        <span>📄 {file.name}</span>
+                        <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>📄 {file.name}</span>
                         <button className="btn btn-primary btn-sm" onClick={convert} disabled={loading}>
                             {loading ? 'Converting...' : '⚡ Start Conversion'}
                         </button>
@@ -86,10 +87,10 @@ export default function PdfToImage() {
                                 margin: '16px 0'
                             }}>
                                 {images.map((img, i) => (
-                                    <div key={i} style={{ borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border-color)' }}>
+                                    <div key={i} style={{ borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border-color)', background: 'var(--bg-secondary)' }}>
                                         <img src={img.url} alt="" style={{ width: '100%', objectFit: 'contain' }} />
                                         <div style={{ padding: 8, textAlign: 'center' }}>
-                                            <a href={img.url} download={img.name} className="copy-btn" style={{ textDecoration: 'none' }}>Download Jpg</a>
+                                            <a href={img.url} download={img.name} className="copy-btn" style={{ textDecoration: 'none', display: 'inline-block', fontSize: '0.8rem' }}>Download Jpg</a>
                                         </div>
                                     </div>
                                 ))}

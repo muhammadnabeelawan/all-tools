@@ -35,6 +35,16 @@ const toolComponents = {
     'pdf-to-image': dynamic(() => import('./PdfToImage'), { ssr: false }),
     'pdf-to-text': dynamic(() => import('./PdfToText'), { ssr: false }),
     'pdf-metadata': dynamic(() => import('./PdfMetadata'), { ssr: false }),
+    'password-generator': dynamic(() => import('./PasswordGenerator')),
+    'qr-generator': dynamic(() => import('./QrGenerator')),
+    'unit-converter': dynamic(() => import('./UnitConverter')),
+    'hash-generator': dynamic(() => import('./HashGenerator')),
+    'bmi-calculator': dynamic(() => import('./BmiCalculator')),
+    'loan-calculator': dynamic(() => import('./LoanCalculator')),
+    'tip-calculator': dynamic(() => import('./TipCalculator')),
+    'date-difference': dynamic(() => import('./DateDifference')),
+    'password-strength': dynamic(() => import('./PasswordStrength')),
+    'uuid-generator': dynamic(() => import('./UuidGenerator')),
 };
 
 export default function ToolRenderer({ tool }) {

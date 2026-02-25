@@ -22,7 +22,10 @@ export default function PdfToText() {
         try {
             // Dynamic import to avoid SSR errors
             const pdfjs = await import('pdfjs-dist');
-            pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
+            // Stable worker URL for version 5+
+            const version = '5.4.624';
+            pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${version}/build/pdf.worker.min.mjs`;
 
             const arrayBuffer = await file.arrayBuffer();
             const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
@@ -38,7 +41,8 @@ export default function PdfToText() {
             setText(fullText);
         } catch (err) {
             console.error(err);
-            alert('Error extracting text from PDF');
+            // Try fallback if worker fails
+            alert('Error extracting text from PDF. This usually happens due to PDF worker loading issues. Please try again or refresh the page.');
         }
         setLoading(false);
     };
@@ -54,7 +58,7 @@ export default function PdfToText() {
             {file && (
                 <div style={{ marginTop: 24, textAlign: 'center' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-                        <span>📄 {file.name}</span>
+                        <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>📄 {file.name}</span>
                         <button className="btn btn-primary btn-sm" onClick={extract} disabled={loading}>
                             {loading ? 'Extracting...' : '⚡ Extract Text'}
                         </button>
@@ -66,7 +70,7 @@ export default function PdfToText() {
                                 <span className="result-title">Extracted Text</span>
                                 <CopyButton text={text} />
                             </div>
-                            <div className="result-content" style={{ maxHeight: 600 }}>{text}</div>
+                            <div className="result-content" style={{ maxHeight: 600, fontSize: '0.9rem', textAlign: 'left' }}>{text}</div>
                         </div>
                     )}
                 </div>
