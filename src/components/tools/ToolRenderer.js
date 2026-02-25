@@ -88,6 +88,7 @@ const toolComponents = {
     'json-schema': dynamic(() => import('./JsonSchemaGenerator')),
     'user-generator': dynamic(() => import('./RandomUserGenerator')),
     'task-checklist': dynamic(() => import('./TaskChecklist')),
+    'resume-builder': dynamic(() => import('./ResumeBuilder')),
 };
 
 export default function ToolRenderer({ tool }) {

@@ -16,7 +16,7 @@ export default function Footer() {
                 <div>
                     <div className="footer-brand">⚡ All Tools</div>
                     <p className="footer-desc">
-                        Professional, safe, and free online utilities. 75+ tools for developers, designers, and office productivity.
+                        Professional, safe, and free online utilities. 77+ tools for developers, designers, and office productivity.
                         No data ever leaves your device.
                     </p>
                 </div>
