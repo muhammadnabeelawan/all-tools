@@ -27,6 +27,8 @@ const toolComponents = {
     'css-minifier': dynamic(() => import('./CssMinifier')),
     'js-minifier': dynamic(() => import('./JsMinifier')),
     'regex-tester': dynamic(() => import('./RegexTester')),
+    'percentage-calculator': dynamic(() => import('./PercentageCalculator')),
+    'age-calculator': dynamic(() => import('./AgeCalculator')),
 };
 
 export default function ToolRenderer({ tool }) {
