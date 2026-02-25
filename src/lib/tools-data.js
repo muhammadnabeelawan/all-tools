@@ -8,6 +8,7 @@ export const categories = [
   { id: 'calculator', name: 'Calculators', icon: '🧮', count: 6 },
   { id: 'security', name: 'Security', icon: '🔒', count: 3 },
   { id: 'color', name: 'Color Tools', icon: '🎨', count: 2 },
+  { id: 'pdf', name: 'PDF Tools', icon: '📄', count: 6 },
 ];
 
 export const tools = [
@@ -81,6 +82,14 @@ export const tools = [
   // COLOR TOOLS
   { id: 'color-picker', name: 'Color Picker', desc: 'Pick colors and get values in multiple formats', category: 'color', icon: '🎨', color: '#ec4899' },
   { id: 'palette-generator', name: 'Palette Generator', desc: 'Generate harmonious color palettes from a base color', category: 'color', icon: '🎭', color: '#8b5cf6' },
+
+  // PDF TOOLS
+  { id: 'merge-pdf', name: 'Merge PDF', desc: 'Combine multiple PDF files into a single document', category: 'pdf', icon: '📎', color: '#ef4444' },
+  { id: 'image-to-pdf', name: 'Image to PDF', desc: 'Convert JPG, PNG images to PDF documents', category: 'pdf', icon: '🖼️', color: '#3b82f6' },
+  { id: 'pdf-to-image', name: 'PDF to Image', desc: 'Convert PDF pages to JPG or PNG images', category: 'pdf', icon: '📸', color: '#10b981' },
+  { id: 'pdf-to-text', name: 'PDF to Text', desc: 'Extract text content from PDF files', category: 'pdf', icon: '📝', color: '#f59e0b' },
+  { id: 'pdf-metadata', name: 'PDF Metadata Editor', desc: 'View and edit title, author, and keywords of PDF', category: 'pdf', icon: 'ℹ️', color: '#8b5cf6' },
+  { id: 'pdf-security', name: 'PDF Password Tool', desc: 'Add or remove password protection from PDFs', category: 'pdf', icon: '🔒', color: '#ec4899' },
 ];
 
 export function getToolById(id) {

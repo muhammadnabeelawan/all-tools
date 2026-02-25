@@ -29,6 +29,11 @@ const toolComponents = {
     'regex-tester': dynamic(() => import('./RegexTester')),
     'percentage-calculator': dynamic(() => import('./PercentageCalculator')),
     'age-calculator': dynamic(() => import('./AgeCalculator')),
+    'merge-pdf': dynamic(() => import('./MergePdf')),
+    'image-to-pdf': dynamic(() => import('./ImageToPdf')),
+    'pdf-to-image': dynamic(() => import('./PdfToImage')),
+    'pdf-to-text': dynamic(() => import('./PdfToText')),
+    'pdf-metadata': dynamic(() => import('./PdfMetadata')),
 };
 
 export default function ToolRenderer({ tool }) {
