@@ -6,14 +6,18 @@ const units = {
         name: 'Length',
         base: 'meter',
         data: {
+            'nanometer': 1e-9,
+            'micrometer': 1e-6,
             'millimeter': 0.001,
             'centimeter': 0.01,
+            'decimeter': 0.1,
             'meter': 1,
             'kilometer': 1000,
             'inch': 0.0254,
             'foot': 0.3048,
             'yard': 0.9144,
-            'mile': 1609.34
+            'mile': 1609.34,
+            'nautical-mile': 1852
         }
     },
     weight: {
@@ -22,9 +26,11 @@ const units = {
         data: {
             'milligram': 0.000001,
             'gram': 0.001,
+            'carat': 0.0002,
             'kilogram': 1,
-            'ounce': 0.0283495,
             'pound': 0.453592,
+            'ounce': 0.0283495,
+            'quintal': 100,
             'metric-ton': 1000
         }
     },
