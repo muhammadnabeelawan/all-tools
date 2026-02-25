@@ -70,6 +70,11 @@ const toolComponents = {
     'css-triangle': dynamic(() => import('./CssTriangle')),
     'js-runner': dynamic(() => import('./JsRunner')),
     'text-to-speech': dynamic(() => import('./TextToSpeech')),
+    'pomodoro-timer': dynamic(() => import('./PomodoroTimer')),
+    'list-randomizer': dynamic(() => import('./ListRandomizer')),
+    'stopwatch': dynamic(() => import('./Stopwatch')),
+    'bmr-calculator': dynamic(() => import('./BmrCalculator')),
+    'scratchpad': dynamic(() => import('./Scratchpad')),
 };
 
 export default function ToolRenderer({ tool }) {
