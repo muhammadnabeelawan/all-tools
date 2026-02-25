@@ -6,8 +6,9 @@ export function generateStaticParams() {
     return tools.map(t => ({ slug: t.id }));
 }
 
-export function generateMetadata({ params }) {
-    const tool = tools.find(t => t.id === params.slug);
+export async function generateMetadata({ params }) {
+    const { slug } = await params;
+    const tool = tools.find(t => t.id === slug);
     if (!tool) return {};
     return {
         title: `${tool.name} - AllTools`,
@@ -15,8 +16,9 @@ export function generateMetadata({ params }) {
     };
 }
 
-export default function ToolPage({ params }) {
-    const tool = tools.find(t => t.id === params.slug);
+export default async function ToolPage({ params }) {
+    const { slug } = await params;
+    const tool = tools.find(t => t.id === slug);
     if (!tool) notFound();
     return <ToolRenderer tool={tool} />;
 }
