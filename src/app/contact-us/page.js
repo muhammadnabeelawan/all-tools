@@ -1,80 +1,42 @@
-'use client';
-import { useState } from 'react';
+export const metadata = {
+    title: 'Contact Us - All Tools',
+    description: 'Get in touch with the All Tools team for support or feedback.',
+};
 
 export default function ContactUs() {
-    const [status, setStatus] = useState('');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setStatus('sending');
-        setTimeout(() => {
-            setStatus('success');
-        }, 1500);
-    };
-
     return (
         <div className="container py-20">
-            <div className="contact-layout">
-                <div className="contact-info animate-fade-in-up">
+            <div className="static-page-container animate-fade-in-up">
+                <div className="static-hero">
                     <div className="hero-badge">Get in Touch</div>
-                    <h1>Have a suggestion or <span className="gradient-text">encountered a bug?</span></h1>
+                    <h1>Contact <span className="gradient-text">Support</span></h1>
                     <p className="hero-p" style={{ marginBottom: '40px' }}>
                         We're always looking to improve our toolset. If you have an idea for a new tool or need help with an existing one,
-                        drop us a message!
+                        reach out to us directly via email.
                     </p>
+                </div>
 
-                    <div className="info-item">
-                        <div className="info-icon">✉</div>
-                        <div>
-                            <div style={{ fontWeight: 600 }}>Email Us</div>
-                            <div className="text-muted">support@alltools.com</div>
-                        </div>
-                    </div>
-                    <div className="info-item">
-                        <div className="info-icon">🐙</div>
-                        <div>
-                            <div style={{ fontWeight: 600 }}>GitHub</div>
-                            <div className="text-muted">Open an issue on our repo</div>
-                        </div>
+                <div className="static-grid" style={{ gridTemplateColumns: '1fr' }}>
+                    <div className="static-card" style={{ maxWidth: '400px', margin: '0 auto' }}>
+                        <span className="static-card-icon">✉</span>
+                        <h3>Email Us</h3>
+                        <p className="text-muted" style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--primary-color)' }}>
+                            support@alltools.com
+                        </p>
+                        <p className="text-muted" style={{ marginTop: '10px' }}>
+                            We typically respond within 24-48 hours.
+                        </p>
                     </div>
                 </div>
 
-                <div className="contact-card animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                    {status === 'success' ? (
-                        <div className="success-msg">
-                            <h3 style={{ marginBottom: '10px' }}>Message Sent!</h3>
-                            <p>Thank you for reaching out. We'll get back to you as soon as possible.</p>
-                            <button
-                                className="btn btn-sm btn-outline"
-                                style={{ marginTop: '20px' }}
-                                onClick={() => setStatus('')}
-                            >
-                                Send another message
-                            </button>
-                        </div>
-                    ) : (
-                        <form onSubmit={handleSubmit}>
-                            <div className="contact-input-group">
-                                <label>Name</label>
-                                <input type="text" placeholder="Your name" required />
-                            </div>
-                            <div className="contact-input-group">
-                                <label>Email Address</label>
-                                <input type="email" placeholder="name@example.com" required />
-                            </div>
-                            <div className="contact-input-group">
-                                <label>Subject</label>
-                                <input type="text" placeholder="What is this about?" required />
-                            </div>
-                            <div className="contact-input-group">
-                                <label>Message</label>
-                                <textarea rows="5" placeholder="Your message..." required></textarea>
-                            </div>
-                            <button className="contact-submit-btn" type="submit" disabled={status === 'sending'}>
-                                {status === 'sending' ? 'Sending...' : 'Send Message ⚡'}
-                            </button>
-                        </form>
-                    )}
+                <div className="static-section" style={{ marginTop: '60px', textAlign: 'center' }}>
+                    <div className="static-content">
+                        <h2>Open Source Community</h2>
+                        <p>
+                            Prefer using GitHub? You can also report bugs or request features directly on our repository tracker.
+                            We love contributions from the community!
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
