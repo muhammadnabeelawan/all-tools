@@ -52,6 +52,18 @@ const toolComponents = {
     'yaml-to-json': dynamic(() => import('./YamlToJson')),
     'timestamp-converter': dynamic(() => import('./TimestampConverter')),
     'number-base': dynamic(() => import('./NumberBase')),
+    'color-picker': dynamic(() => import('./ColorPicker')),
+    'palette-generator': dynamic(() => import('./PaletteGenerator')),
+    'jwt-decoder': dynamic(() => import('./JwtDecoder')),
+    'sql-formatter': dynamic(() => import('./SqlFormatter')),
+    'code-beautifier': dynamic(() => import('./CodeBeautifier')),
+    'cron-parser': dynamic(() => import('./CronParser')),
+    'xml-to-json': dynamic(() => import('./XmlToJson')),
+    'favicon-generator': dynamic(() => import('./FaviconGenerator'), { ssr: false }),
+    'currency-converter': dynamic(() => import('./CurrencyConverter')),
+    'ip-lookup': dynamic(() => import('./IpLookup')),
+    'url-parser': dynamic(() => import('./UrlParser')),
+    'pdf-security': dynamic(() => import('./PdfSecurity'), { ssr: false }),
 };
 
 export default function ToolRenderer({ tool }) {
