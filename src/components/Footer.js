@@ -34,8 +34,10 @@ export default function Footer() {
                 </div>
                 <div>
                     <div className="footer-heading">About</div>
-                    <Link href="/" className="footer-link">Home</Link>
-                    <Link href="/#tools" className="footer-link">All Tools</Link>
+                    <Link href="/about-us" className="footer-link">About Us</Link>
+                    <Link href="/contact-us" className="footer-link">Contact Us</Link>
+                    <Link href="/privacy-policy" className="footer-link">Privacy Policy</Link>
+                    <Link href="/terms-and-conditions" className="footer-link">Terms</Link>
                     <a href="https://github.com" target="_blank" rel="noreferrer" className="footer-link">GitHub</a>
                 </div>
             </div>

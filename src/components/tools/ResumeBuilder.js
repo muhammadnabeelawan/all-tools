@@ -327,9 +327,9 @@ export default function ResumeBuilder() {
     };
 
     return (
-        <div className="rb-parent-wrapper">
+        <div className="resume-builder-wrapper">
             <style jsx>{`
-                .rb-parent-wrapper { width: 100%; }
+                .resume-builder-wrapper { width: 100%; }
                 .rb-app {
                     display: grid;
                     grid-template-columns: 450px 1fr;
@@ -392,12 +392,20 @@ export default function ResumeBuilder() {
                 }
 
                 @media print {
-                    .rb-app, .navbar, .footer, .tool-page-header, .tool-seo-content { display: none !important; }
-                    .print-container { display: block !important; position: absolute; top: 0; left: 0; width: 100%; background: white !important; }
+                    .rb-app { display: block !important; border: none !important; height: auto !important; background: white !important; }
+                    .rb-editor, .sticky-actions, .navbar, .footer, .tool-page-header, .tool-seo-content { display: none !important; }
+                    .rb-preview { 
+                        display: block !important; 
+                        padding: 0 !important; 
+                        margin: 0 !important; 
+                        background: white !important; 
+                        overflow: visible !important;
+                    }
+                    .resume-preview-scale { transform: none !important; }
                     body { background: white !important; }
-                    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
                     @page { size: portrait; margin: 0; }
                 }
+
                 @media (max-width: 1000px) {
                     .rb-app { grid-template-columns: 1fr; height: auto; }
                     .rb-editor { height: 600px; }
@@ -471,15 +479,10 @@ export default function ResumeBuilder() {
                 </div>
 
                 <div className="rb-preview scroll-custom">
-                    <div style={{ transform: 'scale(0.8)', transformOrigin: 'top center' }}>
+                    <div className="resume-preview-scale" style={{ transform: 'scale(0.8)', transformOrigin: 'top center' }}>
                         {renderResumeContent()}
                     </div>
                 </div>
-            </div>
-
-            {/* Print Section (Only visible during window.print) */}
-            <div className="print-container" style={{ display: 'none' }}>
-                {renderResumeContent()}
             </div>
         </div>
     );

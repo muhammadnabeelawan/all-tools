@@ -603,6 +603,7 @@ textarea.input-field {
 
 select.input-field {
   cursor: pointer;
+  -webkit-appearance: none;
   appearance: none;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%238888a0'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -807,6 +808,7 @@ select.input-field {
 .range-slider {
   width: 100%;
   -webkit-appearance: none;
+  appearance: none;
   height: 6px;
   border-radius: 3px;
   background: var(--bg-secondary);
@@ -816,6 +818,7 @@ select.input-field {
 
 .range-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
+  appearance: none;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -1030,6 +1033,7 @@ select.input-field {
 /* ===== COLOR PICKER ===== */
 input[type="color"] {
   -webkit-appearance: none;
+  appearance: none;
   width: 60px;
   height: 60px;
   border: 2px solid var(--border-color);
