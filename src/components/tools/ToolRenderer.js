@@ -2,6 +2,7 @@
 import dynamic from 'next/dynamic';
 import ToolPageLayout from '@/components/ToolPageLayout';
 
+// Using { ssr: false } for tools that depend on browser-only APIs (Canvas, PDF libraries, etc.)
 const toolComponents = {
     'word-counter': dynamic(() => import('./WordCounter')),
     'case-converter': dynamic(() => import('./CaseConverter')),
@@ -13,14 +14,14 @@ const toolComponents = {
     'text-diff': dynamic(() => import('./TextDiff')),
     'string-encoder': dynamic(() => import('./StringEncoder')),
     'markdown-preview': dynamic(() => import('./MarkdownPreview')),
-    'image-compressor': dynamic(() => import('./ImageCompressor')),
-    'image-resizer': dynamic(() => import('./ImageResizer')),
-    'image-converter': dynamic(() => import('./ImageConverter')),
-    'image-cropper': dynamic(() => import('./ImageCropper')),
-    'image-to-base64': dynamic(() => import('./ImageToBase64')),
-    'svg-to-png': dynamic(() => import('./SvgToPng')),
-    'image-filters': dynamic(() => import('./ImageFilters')),
-    'screenshot-mockup': dynamic(() => import('./ScreenshotMockup')),
+    'image-compressor': dynamic(() => import('./ImageCompressor'), { ssr: false }),
+    'image-resizer': dynamic(() => import('./ImageResizer'), { ssr: false }),
+    'image-converter': dynamic(() => import('./ImageConverter'), { ssr: false }),
+    'image-cropper': dynamic(() => import('./ImageCropper'), { ssr: false }),
+    'image-to-base64': dynamic(() => import('./ImageToBase64'), { ssr: false }),
+    'svg-to-png': dynamic(() => import('./SvgToPng'), { ssr: false }),
+    'image-filters': dynamic(() => import('./ImageFilters'), { ssr: false }),
+    'screenshot-mockup': dynamic(() => import('./ScreenshotMockup'), { ssr: false }),
     'json-formatter': dynamic(() => import('./JsonFormatter')),
     'json-to-csv': dynamic(() => import('./JsonToCsv')),
     'html-minifier': dynamic(() => import('./HtmlMinifier')),
@@ -29,11 +30,11 @@ const toolComponents = {
     'regex-tester': dynamic(() => import('./RegexTester')),
     'percentage-calculator': dynamic(() => import('./PercentageCalculator')),
     'age-calculator': dynamic(() => import('./AgeCalculator')),
-    'merge-pdf': dynamic(() => import('./MergePdf')),
-    'image-to-pdf': dynamic(() => import('./ImageToPdf')),
-    'pdf-to-image': dynamic(() => import('./PdfToImage')),
-    'pdf-to-text': dynamic(() => import('./PdfToText')),
-    'pdf-metadata': dynamic(() => import('./PdfMetadata')),
+    'merge-pdf': dynamic(() => import('./MergePdf'), { ssr: false }),
+    'image-to-pdf': dynamic(() => import('./ImageToPdf'), { ssr: false }),
+    'pdf-to-image': dynamic(() => import('./PdfToImage'), { ssr: false }),
+    'pdf-to-text': dynamic(() => import('./PdfToText'), { ssr: false }),
+    'pdf-metadata': dynamic(() => import('./PdfMetadata'), { ssr: false }),
 };
 
 export default function ToolRenderer({ tool }) {

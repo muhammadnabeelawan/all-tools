@@ -1,9 +1,5 @@
 'use client';
 import { useState, useRef } from 'react';
-import * as pdfjs from 'pdfjs-dist';
-
-// Configure the worker for pdfjs (this part is tricky in standard Next.js, but often works if we import it correctly)
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 export default function PdfToImage() {
     const [file, setFile] = useState(null);
@@ -23,6 +19,10 @@ export default function PdfToImage() {
         if (!file) return;
         setLoading(true);
         try {
+            // Dynamic import to avoid SSR errors
+            const pdfjs = await import('pdfjs-dist');
+            pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
             const arrayBuffer = await file.arrayBuffer();
             const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
             const pages = [];
