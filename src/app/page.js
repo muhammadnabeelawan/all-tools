@@ -13,16 +13,16 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-badge">🚀 Free & Open Source</div>
         <h1>
-          All The <span className="gradient-text">Tools</span> You Need<br />
-          In One Place
+          75+ Professional <span className="gradient-text">Online Tools</span><br />
+          For Every Task
         </h1>
         <p>
-          50+ powerful tools right in your browser. No sign-ups, no downloads,
-          no server uploads. Fast, private, and completely free.
+          The most comprehensive collection of 75+ free online tools for developers, designers, and daily tasks.
+          Everything runs 100% in your browser—no uploads, no sign-ups, and complete privacy guaranteed.
         </p>
         <div className="hero-stats">
           <div className="hero-stat">
-            <div className="hero-stat-value">55+</div>
+            <div className="hero-stat-value">75+</div>
             <div className="hero-stat-label">Free Tools</div>
           </div>
           <div className="hero-stat">

@@ -3,13 +3,24 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata = {
-  title: 'All Tools - 50+ Free Online Tools',
-  description: 'Your all-in-one toolbox with 50+ free online tools including image compressor, JSON formatter, QR generator, password generator, unit converter, and more.',
-  keywords: 'online tools, image compressor, json formatter, qr generator, password generator, unit converter, free tools',
+  metadataBase: new URL('https://all-tools-poth.vercel.app'),
+  title: 'All Tools - 75+ Free Online Utilities & Productivity Tools',
+  description: 'Your premium all-in-one toolbox with 75+ free online tools. Including image compressor, JSON formatter, QR generator, PDF tools, financial calculators, and unit converters. Privacy-first and zero-latency.',
+  keywords: 'online tools, image compressor, json formatter, qr generator, password generator, unit converter, free tools, pdf tools, financial calculators, productivity tools, word counter, lorem ipsum',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'All Tools - 50+ Free Online Tools',
-    description: 'Your all-in-one toolbox with 50+ free online tools.',
+    title: 'All Tools - 75+ Free Online Online Utilities',
+    description: 'Access 75+ high-quality tools for text, images, development, finance, and more. All free and secure.',
+    url: 'https://all-tools-poth.vercel.app',
+    siteName: 'All Tools',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'All Tools - 75+ Free Online Online Utilities',
+    description: 'Instant, free, and secure online tools for everyone.',
   },
 };
 

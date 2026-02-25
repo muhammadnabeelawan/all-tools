@@ -14,10 +14,10 @@ export default function Footer() {
         <footer className="footer">
             <div className="footer-inner">
                 <div>
-                    <div className="footer-brand">⚡ AllTools</div>
+                    <div className="footer-brand">⚡ All Tools</div>
                     <p className="footer-desc">
-                        Your all-in-one toolbox with 50+ free online tools. No sign-up required.
-                        Everything runs in your browser for maximum privacy and speed.
+                        Professional, safe, and free online utilities. 75+ tools for developers, designers, and office productivity.
+                        No data ever leaves your device.
                     </p>
                 </div>
                 <div>

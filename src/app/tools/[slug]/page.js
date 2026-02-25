@@ -11,8 +11,11 @@ export async function generateMetadata({ params }) {
     const tool = tools.find(t => t.id === slug);
     if (!tool) return {};
     return {
-        title: `${tool.name} - AllTools`,
-        description: tool.desc,
+        title: `${tool.name} - Free Online Tool | All Tools`,
+        description: `Use our free online ${tool.name}. ${tool.desc}. Secure, fast, and easy to use on All Tools.`,
+        alternates: {
+            canonical: `/tools/${slug}`,
+        },
     };
 }
 
