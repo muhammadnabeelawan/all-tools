@@ -2,45 +2,39 @@
 import { useState } from 'react';
 
 export default function PercentageCalculator() {
-    const [val1, setVal1] = useState('');
-    const [val2, setVal2] = useState('');
-    const [val3, setVal3] = useState('');
-    const [val4, setVal4] = useState('');
+    const [val1, setVal1] = useState(20);
+    const [val2, setVal2] = useState(150);
+    const [val3, setVal3] = useState(30);
+    const [val4, setVal4] = useState(150);
 
-    // What is X% of Y?
-    const res1 = (val1 && val2) ? (Number(val1) / 100 * Number(val2)).toFixed(2) : null;
-    // X is what % of Y?
-    const res2 = (val3 && val4) ? (Number(val3) / Number(val4) * 100).toFixed(2) : null;
+    const res1 = (val1 * val2 / 100).toFixed(2);
+    const res2 = (val3 / val4 * 100).toFixed(2);
 
     return (
-        <>
-            <div className="input-group">
-                <label>What is % of ?</label>
-                <div className="grid-2">
-                    <input className="input-field" type="number" value={val1} onChange={e => setVal1(e.target.value)} placeholder="Percentage (e.g. 20)" />
-                    <input className="input-field" type="number" value={val2} onChange={e => setVal2(e.target.value)} placeholder="Value (e.g. 150)" />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+            <section>
+                <div className="input-field" style={{ marginBottom: '1rem', border: 'none', background: 'transparent' }}>What is {val1}% of {val2}?</div>
+                <div className="grid-2" style={{ gap: '1rem' }}>
+                    <input className="input-field" type="number" value={val1} onChange={e => setVal1(parseFloat(e.target.value) || 0)} placeholder="Percentage" />
+                    <input className="input-field" type="number" value={val2} onChange={e => setVal2(parseFloat(e.target.value) || 0)} placeholder="Value" />
                 </div>
-            </div>
-            {res1 !== null && (
-                <div className="result-container" style={{ marginBottom: 32 }}>
-                    <div className="result-value">{res1}</div>
-                    <div className="result-label" style={{ textAlign: 'center' }}>Result</div>
+                <div className="metric-card" style={{ marginTop: '1rem', borderColor: 'var(--accent-primary)' }}>
+                    <div className="metric-label">Result</div>
+                    <div className="metric-value">{res1}</div>
                 </div>
-            )}
+            </section>
 
-            <div className="input-group">
-                <label>is what % of ?</label>
-                <div className="grid-2">
-                    <input className="input-field" type="number" value={val3} onChange={e => setVal3(e.target.value)} placeholder="Value (e.g. 30)" />
-                    <input className="input-field" type="number" value={val4} onChange={e => setVal4(e.target.value)} placeholder="Total (e.g. 150)" />
+            <section>
+                <div className="input-field" style={{ marginBottom: '1rem', border: 'none', background: 'transparent' }}>{val3} is what % of {val4}?</div>
+                <div className="grid-2" style={{ gap: '1rem' }}>
+                    <input className="input-field" type="number" value={val3} onChange={e => setVal3(parseFloat(e.target.value) || 0)} placeholder="Value" />
+                    <input className="input-field" type="number" value={val4} onChange={e => setVal4(parseFloat(e.target.value) || 0)} placeholder="Total" />
                 </div>
-            </div>
-            {res2 !== null && (
-                <div className="result-container">
-                    <div className="result-value">{res2}%</div>
-                    <div className="result-label" style={{ textAlign: 'center' }}>Result</div>
+                <div className="metric-card" style={{ marginTop: '1rem', borderColor: 'var(--accent-success)' }}>
+                    <div className="metric-label">Result Percentage</div>
+                    <div className="metric-value">{res2}%</div>
                 </div>
-            )}
-        </>
+            </section>
+        </div>
     );
 }

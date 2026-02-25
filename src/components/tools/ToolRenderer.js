@@ -64,6 +64,7 @@ const toolComponents = {
     'ip-lookup': dynamic(() => import('./IpLookup')),
     'url-parser': dynamic(() => import('./UrlParser')),
     'pdf-security': dynamic(() => import('./PdfSecurity'), { ssr: false }),
+    'color-converter': dynamic(() => import('./ColorConverter')),
 };
 
 export default function ToolRenderer({ tool }) {
